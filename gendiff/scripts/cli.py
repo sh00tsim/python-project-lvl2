@@ -10,6 +10,7 @@ def run():
     parser.add_argument('-f', '--format',
             help='set format of output')
 
-    parser.print_help()
+    args = parser.parse_args()
+    return args
 
 
