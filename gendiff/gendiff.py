@@ -20,17 +20,15 @@ def found_difference(way_one, way_two):
                 new_string = f'    {key}: {file_one[key]}\n'
             else:
                 new_string = f'  - {key}: {file_one[key]}\n' \
-                        f'  + {key}: {file_two[key]}\n'
-            if not new_string in output:
+                    f'  + {key}: {file_two[key]}\n'
+            if new_string not in output:
                 output += new_string
-        elif key in file_one and not key in file_two:
+        elif key in file_one and key not in file_two:
             output += f'  - {key}: {file_one[key]}\n'
-        elif not key in file_one and key in file_two:
+        elif key not in file_one and key in file_two:
             output += f'  + {key}: {file_two[key]}\n'
     return f'{start}\n{output} {finish}\n'
 
 
 def output(args):
     print(found_difference(args.first_file, args.second_file))
-
-
